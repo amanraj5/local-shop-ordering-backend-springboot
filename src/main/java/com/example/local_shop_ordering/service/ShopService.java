@@ -26,4 +26,16 @@ public class ShopService {
         Shops shops = shopRepository.findById(id).orElseThrow(() -> new RuntimeException("Shop not found with id: " + id));
         return shops;
     }
+
+    public void deleteShop(String id){
+        shopRepository.deleteById(id);
+    }
+
+    public List<Shops> getShopsForDeletion() {
+        return shopRepository.findAll();
+    }
+
+    public void saveShop(Shops newShop) {
+        shopRepository.save(newShop);
+    }
 }

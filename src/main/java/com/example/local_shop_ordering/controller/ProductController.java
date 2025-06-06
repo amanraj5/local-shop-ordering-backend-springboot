@@ -4,6 +4,7 @@ import com.example.local_shop_ordering.dto.ProductRequest;
 import com.example.local_shop_ordering.model.Product;
 import com.example.local_shop_ordering.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,12 +25,18 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
     @GetMapping("/shops/{shopId}")
-    public ResponseEntity<List<Product>> getProductByShopId(@PathVariable String shopId){
+    public ResponseEntity<Optional<List<Product>>> getProductByShopId(@PathVariable String shopId){
         return ResponseEntity.ok(productService.getProductByShopId(shopId));
     }
 
     @GetMapping
     public List<Product> getAllProduct(){
         return productService.getAllProduct();
+    }
+
+    @DeleteMapping("/deleteProduct/{id}")
+    public String deleteProduct(@PathVariable String id){
+        productService.deleteProduct(id);
+        return "Product deleted successfully";
     }
 }

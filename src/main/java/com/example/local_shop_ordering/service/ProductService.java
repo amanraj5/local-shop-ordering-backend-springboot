@@ -43,11 +43,15 @@ public class ProductService {
 
         return productRepository.saveAll(productsToSave);
     }
-    public List<Product> getProductByShopId(String shopId){
+    public Optional<List<Product>> getProductByShopId(String shopId){
         return productRepository.findByShopId(shopId);
     }
 
     public List<Product> getAllProduct() {
         return productRepository.findAll();
+    }
+
+    public void deleteProduct(String id) {
+        productRepository.deleteById(id);
     }
 }
