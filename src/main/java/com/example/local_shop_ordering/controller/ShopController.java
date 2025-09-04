@@ -25,10 +25,6 @@ public class ShopController {
         return shopService.getAllShops();
     }
 
-//    @PostMapping("/addShop")
-//    public List<Shops> addShop(@RequestBody List<Shops> shop) {
-//        return shopService.addShop(shop);
-//    }
 
     @PostMapping("/addShop")
     public ResponseEntity<String> addShop(
@@ -64,5 +60,10 @@ public class ShopController {
     public String deleteShop(@PathVariable String id){
         shopService.deleteShop(id);
         return "Shop deleted Successfully";
+    }
+
+    @GetMapping("/search")
+    public List<Shops> getShopByName(@RequestParam String name){
+        return shopService.getShopByName(name);
     }
 }

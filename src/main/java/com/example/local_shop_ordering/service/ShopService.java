@@ -38,4 +38,8 @@ public class ShopService {
     public void saveShop(Shops newShop) {
         shopRepository.save(newShop);
     }
+
+    public List<Shops> getShopByName(String name) {
+        return shopRepository.findByNameContainingIgnoreCase(name);
+    }
 }
