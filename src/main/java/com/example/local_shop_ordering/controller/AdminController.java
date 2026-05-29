@@ -1,12 +1,17 @@
 package com.example.local_shop_ordering.controller;
 import com.example.local_shop_ordering.dto.AdminRequest;
 import com.example.local_shop_ordering.service.AdminService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(
+        name = "REST APIs for Admin in local-shop-ordering App",
+        description = "REST APIs in Local-Shop-Ordering to POST admin details"
+)
 @Controller
 @RestController
 @CrossOrigin

@@ -4,6 +4,7 @@ import com.example.local_shop_ordering.dto.ProductRequest;
 import com.example.local_shop_ordering.model.Product;
 import com.example.local_shop_ordering.model.Shops;
 import com.example.local_shop_ordering.service.ProductService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,10 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
-
+@Tag(
+        name = "CRUD REST APIs for Products in local-shop-ordering App",
+        description = "CRUD REST APIs in Local-Shop-Ordering to POST, CREATE AND DELETE product details"
+)
 @RestController
 @RequestMapping("/api/products")
 @CrossOrigin
